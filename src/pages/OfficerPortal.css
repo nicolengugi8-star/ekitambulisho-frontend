@@ -1,0 +1,447 @@
+/* e-Kitambulisho Officer Portal — uses shared tokens from styles/ekitambulisho.css */
+
+.officer-root {
+  min-height: 100vh;
+  background: var(--ek-bg);
+  color: var(--ek-text);
+  font-family: var(--ek-font);
+}
+
+.officer-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--ek-green-darker) 0%, var(--ek-green) 50%, #008000 100%);
+}
+
+.officer-login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.officer-login-brand {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.officer-login-brand h1 {
+  margin: 0;
+  color: var(--ek-green);
+  font-size: 1.75rem;
+}
+
+.officer-login-brand p {
+  margin: 8px 0 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.officer-form-group {
+  margin-bottom: 16px;
+}
+
+.officer-form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.officer-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.officer-input:focus {
+  outline: none;
+  border-color: var(--ek-green);
+  box-shadow: 0 0 0 2px rgba(0, 102, 0, 0.15);
+}
+
+.officer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.officer-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.officer-btn-primary {
+  background: var(--ek-green);
+  color: #fff;
+  width: 100%;
+}
+
+.officer-btn-primary:hover:not(:disabled) {
+  background: var(--ek-green-dark);
+}
+
+.officer-btn-secondary {
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.officer-btn-secondary:hover:not(:disabled) {
+  background: #f5f5f5;
+}
+
+.officer-btn-danger {
+  background: #c62828;
+  color: #fff;
+}
+
+.officer-btn-sm {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.officer-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.officer-header {
+  background: var(--ek-green-dark);
+  color: #fff;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.officer-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.officer-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.officer-content {
+  flex: 1;
+  padding: 24px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.officer-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.officer-stat-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.officer-stat-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.officer-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ek-green);
+}
+
+.officer-search-row {
+  margin-bottom: 20px;
+}
+
+.officer-search-row .officer-input {
+  max-width: 400px;
+}
+
+.officer-results-count {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 16px;
+}
+
+.officer-alert {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.officer-alert-error {
+  background: #ffebee;
+  border: 1px solid #ef9a9a;
+  color: #c62828;
+}
+
+.officer-alert-info {
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+  color: #1565c0;
+}
+
+.officer-alert-warning {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  color: #f57f17;
+}
+
+.officer-loading,
+.officer-empty {
+  text-align: center;
+  padding: 48px 24px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  color: #666;
+}
+
+.officer-appointment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.officer-appointment-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.officer-appointment-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.officer-appointment-header h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.officer-appointment-ref {
+  font-family: monospace;
+  font-size: 13px;
+  color: #555;
+}
+
+.officer-appointment-body {
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  font-size: 14px;
+}
+
+.officer-detail-label {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 2px;
+}
+
+.officer-workflow {
+  padding: 16px 20px;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+}
+
+.officer-workflow-title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.officer-stepper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.officer-step {
+  flex: 1 1 100px;
+  min-width: 90px;
+  text-align: center;
+  padding: 8px 6px;
+  border-radius: 6px;
+  font-size: 11px;
+  background: #eee;
+  color: #888;
+}
+
+.officer-step.done {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.officer-step.current {
+  background: var(--ek-green);
+  color: #fff;
+  font-weight: 600;
+}
+
+.officer-step.upcoming {
+  background: #f5f5f5;
+  color: #bbb;
+}
+
+.officer-workflow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.officer-workflow-message {
+  font-size: 13px;
+  color: #555;
+  font-style: italic;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+}
+
+.officer-status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.officer-status-scheduled { background: #e3f2fd; color: #1565c0; }
+.officer-status-awaiting_biometrics { background: #fff3e0; color: #e65100; }
+.officer-status-biometrics_verified { background: #e8f5e9; color: #2e7d32; }
+.officer-status-id_ready { background: #e8f5e9; color: #006600; }
+.officer-status-id_given { background: #f3e5f5; color: #7b1fa2; }
+.officer-status-id_collected { background: #eceff1; color: #546e7a; }
+.officer-status-default { background: #f5f5f5; color: #333; }
+
+.officer-action-error {
+  font-size: 13px;
+  color: #c62828;
+  margin-top: 8px;
+}
+
+.officer-backend-note {
+  margin-top: 20px;
+  padding: 12px;
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #795548;
+}
+
+.officer-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+}
+
+.officer-modal {
+  background: #fff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.officer-modal-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.officer-modal-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.officer-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+}
+
+.officer-modal-body {
+  padding: 22px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.officer-modal-footer {
+  padding: 14px 22px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .officer-content {
+    padding: 16px;
+  }
+
+  .officer-stepper {
+    flex-direction: column;
+  }
+
+  .officer-step {
+    min-width: 100%;
+  }
+}
