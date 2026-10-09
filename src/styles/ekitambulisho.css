@@ -102,12 +102,13 @@ a:hover {
 .ek-header-inner {
   max-width: var(--ek-max-width);
   margin: 0 auto;
-  padding: 0 20px;
-  height: var(--ek-header-height);
+  padding: 8px 20px;
+  min-height: var(--ek-header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .ek-brand {
@@ -132,12 +133,17 @@ a:hover {
   font-size: 11px;
   opacity: 0.85;
   font-weight: 400;
+  line-height: 1.25;
+  max-width: 280px;
 }
 
 .ek-nav-desktop {
   display: flex;
   align-items: center;
-  gap: 4px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 2px;
+  flex: 1 1 320px;
 }
 
 .ek-nav-link {
@@ -159,6 +165,18 @@ a:hover {
 .ek-nav-link.active {
   background: rgba(255, 255, 255, 0.18);
   color: #fff;
+}
+
+.ek-nav-link-staff {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  margin-left: 4px;
+  font-size: 13px;
+}
+
+.ek-nav-mobile .ek-nav-link-staff {
+  margin-top: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  text-align: center;
 }
 
 .ek-menu-toggle {
@@ -226,6 +244,48 @@ a:hover {
 .ek-footer-links a:hover {
   color: #fff;
   text-decoration: underline;
+}
+
+.ek-footer-blurb {
+  font-size: 14px;
+  margin: 0;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+.ek-footer-staff-link {
+  font-weight: 600;
+}
+
+.ek-staff-login-note {
+  font-size: 14px;
+  color: var(--ek-text-muted);
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+.ek-staff-login-back {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.ek-info-page {
+  max-width: 720px;
+}
+
+.ek-info-page h1 {
+  margin-top: 0;
+  color: var(--ek-green-dark);
+}
+
+.ek-info-page h2 {
+  font-size: 1.1rem;
+  margin-top: 28px;
+}
+
+.ek-info-list {
+  padding-left: 20px;
 }
 
 .ek-footer-bottom {
@@ -923,6 +983,11 @@ a:hover {
 @media (max-width: 768px) {
   .ek-nav-desktop {
     display: none;
+  }
+
+  .ek-brand-sub {
+    font-size: 10px;
+    max-width: 200px;
   }
 
   .ek-menu-toggle {

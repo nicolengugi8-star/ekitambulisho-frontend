@@ -3,16 +3,33 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import PublicLayout from '../components/PublicLayout';
 import API_BASE from '../config/api';
+import {
+  CHIEF_TOKEN_KEY,
+  CHIEF_PROFILE_KEY,
+  persistStaffSession,
+} from '../utils/staffAuth';
+
+function readChiefProfile() {
+  try {
+    const raw = sessionStorage.getItem(CHIEF_PROFILE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
 
 function ChiefPortal() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState(() => sessionStorage.getItem(CHIEF_TOKEN_KEY) || '');
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(false);
   const [appsLoading, setAppsLoading] = useState(false);
   const [error, setError] = useState('');
-  const [wardId, setWardId] = useState('');
+  const [wardId, setWardId] = useState(() => {
+    const profile = readChiefProfile();
+    return profile?.wardId != null ? String(profile.wardId) : '';
+  });
 
   const handleLogin = async (e) => {
     e?.preventDefault();
@@ -25,8 +42,11 @@ function ChiefPortal() {
         { username, password }
       );
 
-      setToken(response.data.token);
-      setWardId(response.data.chief.wardId);
+      const newToken = response.data.token;
+      persistStaffSession('chief', newToken, response.data);
+      const nextWardId = response.data.chief?.wardId ?? response.data.chief?.ward_id;
+      setToken(newToken);
+      setWardId(nextWardId != null ? String(nextWardId) : '');
     } catch {
       setError('Invalid username or password');
     } finally {
@@ -86,6 +106,8 @@ function ChiefPortal() {
   };
 
   const handleLogout = () => {
+    sessionStorage.removeItem(CHIEF_TOKEN_KEY);
+    sessionStorage.removeItem(CHIEF_PROFILE_KEY);
     setToken('');
     setWardId('');
     setApplications([]);
@@ -117,8 +139,10 @@ function ChiefPortal() {
                 {loading ? 'Logging in...' : 'Sign In'}
               </button>
             </form>
-            <p style={{ textAlign: 'center', marginTop: 20, fontSize: 13 }}>
-              <Link to="/">← Back to Home</Link>
+            <p className="ek-staff-login-back">
+              <Link to="/staff/login">Staff Login</Link>
+              {' · '}
+              <Link to="/">Back to public site</Link>
             </p>
           </div>
         </div>

@@ -7,10 +7,10 @@ function Home() {
       <section className="ek-hero">
         <div className="ek-container">
           <h1>e-Kitambulisho</h1>
-          <h2>Kenya&apos;s Smart Digital Identity Platform</h2>
+          <h2>Digital Identity Services Prototype</h2>
           <p>
-            Apply, track and manage identity services securely through one trusted
-            government digital platform.
+            Apply, track, and manage identity services through a secure digital prototype built
+            for pilot evaluation and stakeholder demonstration.
           </p>
           <div className="ek-hero-actions">
             <Link to="/apply" className="ek-btn ek-btn-primary">

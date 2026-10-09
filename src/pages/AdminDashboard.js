@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './AdminDashboard.css';
 import API_BASE from '../config/api';
@@ -666,6 +667,15 @@ function AdminDashboard() {
                 {loginLoading ? 'Logging in...' : 'Sign In'}
               </button>
             </form>
+            <p style={{ textAlign: 'center', marginTop: 20, fontSize: 13 }}>
+              <Link to="/staff/login" style={{ color: '#006600' }}>
+                Staff Login
+              </Link>
+              {' · '}
+              <Link to="/" style={{ color: '#006600' }}>
+                Public site
+              </Link>
+            </p>
           </div>
         </div>
       </div>

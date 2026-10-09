@@ -594,8 +594,12 @@ function OfficerPortal() {
               </button>
             </form>
             <p style={{ textAlign: 'center', marginTop: 20, fontSize: 13 }}>
+              <Link to="/staff/login" style={{ color: '#006600' }}>
+                Staff Login
+              </Link>
+              {' · '}
               <Link to="/" style={{ color: '#006600' }}>
-                ← Back to Home
+                Public site
               </Link>
             </p>
           </div>
